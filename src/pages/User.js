@@ -15,7 +15,7 @@ const User = (props) => {
     const history = useNavigate();
 
     const getImages = async (id) => {
-        let responseImage = await fetch(`http://localhost:4500/api/v1/user/image?id=${id}`);
+        let responseImage = await fetch(`${process.env.REACT_APP_URL}/api/v1/user/image?id=${id}`);
         let jsonImage = await responseImage.json();
         setData(jsonImage.data);
         console.log(jsonImage.data);
