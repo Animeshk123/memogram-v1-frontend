@@ -17,9 +17,9 @@ const App = () => {
     return (
         <>
             <LoadingBar
-                color='#203239'
+                color='#F73D93'
                 progress={progress}
-                height='5px'
+                height='7px'
                 shadow='true'
                 onLoaderFinished={() => setProgress(0)}
             />
