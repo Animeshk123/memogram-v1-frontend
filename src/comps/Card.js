@@ -24,7 +24,7 @@ const Card = (props) => {
                 <div className="card_overlay">
                     <div className="bar">
                         <div className="left">
-                            <img src={profile.userProfile} />
+                            <img src={profile.userProfile} loading="lazy"/>
                             <h3>{(localStorage.getItem("id") == props.id) ? "You" : profile.userName}</h3>
                         </div>
                         <a href={props.imgUrl} download={true}>
