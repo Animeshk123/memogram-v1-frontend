@@ -19,7 +19,7 @@ const App = () => {
             <LoadingBar
                 color='#F24C4C'
                 progress={progress}
-                height='7'
+                height='4px'
                 onLoaderFinished={() => setProgress(0)}
             />
             <Routes>
