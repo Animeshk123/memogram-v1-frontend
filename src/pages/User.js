@@ -128,6 +128,9 @@ const UserCard = styled.div`
              border-radius:50%;
              object-fit:cover;
              margin-right:2rem;
+           @media screen and (max-width:800px){
+         margin-right:0!important;
+     }
          }
          div{
              @media screen and (max-width:800px){
