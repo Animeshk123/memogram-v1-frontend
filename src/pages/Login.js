@@ -41,7 +41,7 @@ const Login = (props) => {
       }
       else {
         props.setLoader(50);
-        const server = await fetch(`${process.env.REACT_APP_URL}/api/v1/login`, {
+        const server = await fetch(`https://memo-gram-backend-api.vercel.app/api/v1/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({ email: data.email, password: data.password })
