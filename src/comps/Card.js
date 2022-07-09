@@ -49,6 +49,8 @@ const CardWrapper = styled.div`
      object-fit:cover;
      object-position:center;
      background-color:rgba(255,255,255,0.6);
+     transition:0.5s ease;
+     border-radius:8px;
  }
  .card_overlay{
      position:absolute;
