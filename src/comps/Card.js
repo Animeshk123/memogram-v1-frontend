@@ -20,7 +20,7 @@ const Card = (props) => {
     return (
         <>
             <CardWrapper>
-                <img src={props.imgUrl} alt="images" />
+                <img src={props.imgUrl} alt="images" loading='lazy'/>
                 <div className="card_overlay">
                     <div className="bar">
                         <div className="left">
