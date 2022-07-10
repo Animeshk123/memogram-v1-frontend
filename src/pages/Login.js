@@ -7,7 +7,7 @@ import { showLoader } from '../logic/logic';
 const Login = (props) => {
 
   useEffect(() => {
-    showLoader(props.setLoader);
+    props.setLoader(100);
   }, []);
 
   const [type, setType] = useState({ type: 'password', icon: "fas fa-eye" });
