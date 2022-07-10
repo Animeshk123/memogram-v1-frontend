@@ -53,6 +53,7 @@ const Register = (props) => {
 
     //submit form
     const handleSubmit = async () => {
+        props.setLoader(20);
         try {
             if (data.password != data.cPassword) {
                 props.notification(`Passwords doesn't match`, { appearance: "error", autoDismiss: true, autoDismissTimeout: 300, autoDismissTimeout: 4000 });
@@ -63,8 +64,9 @@ const Register = (props) => {
                 return;
             }
             else {
+                props.setLoader(40);
                 onClickFileUpload(fileState, setFileState, props.notification, props.setLoader, async (url) => {
-                    props.setLoader(50);
+                    props.setLoader(60);
                     let obj = {
                         name: data.name,
                         email: data.email,
@@ -76,15 +78,15 @@ const Register = (props) => {
                         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
                         body: JSON.stringify(obj)
                     })
-                    props.setLoader(70);
+                    props.setLoader(80);
                     const res = await server.json();
-                    props.setLoader(100);
+                    props.setLoader(90);
                     if (res.regStatus) {
                         localStorage.setItem('id', res.user._id);
                         props.notification(res.message, { appearance: "success", autoDismiss: true, autoDismissTimeout: 4000 });
                         setTimeout(() => {
                             history('/');
-                        }, 2000);
+                        }, 1000);
                     }
                     else {
                         props.notification(res.message, { appearance: "error", autoDismiss: true, autoDismissTimeout: 4000 });
@@ -98,6 +100,7 @@ const Register = (props) => {
 
                 })
             }
+       props.setLoader(100);
         }
         catch (err) {
             props.setLoader(100);
