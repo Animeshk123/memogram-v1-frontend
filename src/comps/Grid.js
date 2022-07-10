@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import Card from './Card';
+import Load from './Load';
 
 const Grid = (props) => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
     return (
         <>
             <div className='container'>
                 <GridWrapper>
                     {
-                        (props.data.length > 0) ?
-                            props.data.map(item => {
+                      (loading) ? (<Load/><Load/>) : (props.data.length > 0) ?
+                            (props.data.map(item => {
                                 return <Card imgUrl={item.imageUrl} id={item.user} />
-                            }) : <p style={{ color: "white" }}>No post Available</p>
+                            })) : <p style={{ color: "white" }}>No posts Available</p>
 
                     }
                 </GridWrapper>
