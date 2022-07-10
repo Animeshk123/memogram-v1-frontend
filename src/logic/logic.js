@@ -7,7 +7,7 @@ const onClickFileUpload = (fileState, setFileState, setError, setLoader, cb) => 
         return;
     }
     setLoader(20);
-    uploadFile(fileState.file, setFileState, (response) => {
+    uploadFile(fileState.file, setFileState, setLoader,(response) => {
         if (response.status) {
             setFileState({ file: null, label: "Upload Profile Photo" });
             cb(response.url);
