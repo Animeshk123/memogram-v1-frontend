@@ -22,10 +22,9 @@ const Home = (props) => {
 
   useEffect(() => {
     props.setLoader(30);
-    getUser(setUser);
+    getUser(setUser,setProfile);
     getImages();
     props.setLoader(100);
-    setProfile(user.userProfile);
   }, [])
 
   if (!localStorage.getItem("id")) {
