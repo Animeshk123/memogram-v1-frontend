@@ -1,7 +1,7 @@
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "./firebase";
 
-const uploadFile = (file, setProgress, cb) => {
+const uploadFile = (file, setProgress,setLoader, cb) => {
     if (!file) return;
     try {
         const storageRef = ref(storage, `/files/${file.name}`);
@@ -9,6 +9,7 @@ const uploadFile = (file, setProgress, cb) => {
 
         uploadTask.on("state_changed", (snapshot) => {
             const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+            setLoader(progress);
             if (progress < 100) {
                 setProgress({ file: file, label: `uploading...${progress}%` });
             }
