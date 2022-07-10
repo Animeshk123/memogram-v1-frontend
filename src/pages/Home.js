@@ -11,12 +11,12 @@ import { getUser } from '../logic/Get';
 const Home = (props) => {
   const [user, setUser] = useState({});
   const [data, setData] = useState([]);
+  const [profile,setProfile] = useState("/media/default.jpg");
 
   const getImages = async () => {
     let responseImage = await fetch(`${process.env.REACT_APP_URL}/api/v1/all`);
     let jsonImage = await responseImage.json();
     setData(jsonImage.data);
-    console.log(jsonImage.data);
   }
 
 
@@ -25,6 +25,7 @@ const Home = (props) => {
     getUser(setUser);
     getImages();
     props.setLoader(100);
+    setProfile(user.userProfile);
   }, [])
 
   if (!localStorage.getItem("id")) {
@@ -32,7 +33,7 @@ const Home = (props) => {
   }
   return (
     <>
-      <Navbar url={user.userProfile} />
+      <Navbar url={profile} />
       <Grid data={data} />
     </>
   )
