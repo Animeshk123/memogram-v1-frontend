@@ -14,9 +14,14 @@ const Home = (props) => {
   const [profile,setProfile] = useState("/media/default.jpg");
 
   const getImages = async () => {
+    try{
     let responseImage = await fetch(`${process.env.REACT_APP_URL}/api/v1/all`);
     let jsonImage = await responseImage.json();
-    setData(jsonImage.data);
+    setData(jsonImage.data.reverse());
+    }
+    catch(err){
+     alert("Network Connection Error");
+    }
   }
 
 
