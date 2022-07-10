@@ -10,7 +10,7 @@ const Grid = (props) => {
             <div className='container'>
                 <GridWrapper>
                     {
-                      (props.data === null) ? <Load/> : <Value data={props.data} />
+                      (props.data === null) ? (<Load/><Load/><Load/><Load/><Load/><Load/><Load/><Load/>) : <Value data={props.data} />
                     }
                 </GridWrapper>
             </div>
