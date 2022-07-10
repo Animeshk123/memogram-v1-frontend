@@ -12,13 +12,13 @@ const User = (props) => {
     const [user, setUser] = useState({});
     const [data, setData] = useState([]);
     const [file, setFile] = useState(null);
+    const [profile, setProfile] = useState("/media/default.jpg");
     const history = useNavigate();
 
     const getImages = async (id) => {
         let responseImage = await fetch(`${process.env.REACT_APP_URL}/api/v1/user/image?id=${id}`);
         let jsonImage = await responseImage.json();
         setData(jsonImage.data);
-        console.log(jsonImage.data);
     }
 
     const handleChangeFile = (e) => {
@@ -54,7 +54,7 @@ const User = (props) => {
     }
 
     useEffect(() => {
-        getUser(setUser);
+        getUser(setUser,setProfile);
         getImages(localStorage.getItem("id"));
         showLoader(props.setLoader);
 
@@ -67,12 +67,12 @@ const User = (props) => {
 
     return (
         <>
-            <Navbar url={user.userProfile} />
+            <Navbar url={profile} />
             <UserCard>
                 <div className="container">
                     <div className='wrapper'>
                         <div className='rowOne'>
-                            <img src={user.userProfile} alt='user' />
+                            <img src={profile} alt='user' />
                             <div>
                                 <h2>{user.userName}</h2>
                                 <p>{user.userEmail}</p>
