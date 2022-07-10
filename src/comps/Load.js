@@ -14,9 +14,8 @@ const CardWrapper = styled.div`
   max-width:450px;
   border-radius:8px;
   height:200px;
-  background-color:'rgba(255,255,255,0.7)';
+  background-color:rgba(255,255,255,0.7);
   margin-bottom:1.2rem;
-  border:2px solid white;
 `;
 
 
