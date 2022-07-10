@@ -20,7 +20,7 @@ const App = () => {
                 color='red'
                 progress={progress}
                 height='4px'
-                shadow=true
+                shadow='true'
                 onLoaderFinished={() => setProgress(0)}
             />
             <Routes>
