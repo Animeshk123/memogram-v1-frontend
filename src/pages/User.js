@@ -27,7 +27,6 @@ const User = (props) => {
             props.notification("please Select A file", { appearance: "error", autoDismiss: true, autoDismissTimeout: 4000 });
             return;
         }
-        props.setLoader(20);
         uploadFile(e.target.files[0], setFile, props.setLoader, async (response) => {
             if (response.status) {
                 setFile(null);
