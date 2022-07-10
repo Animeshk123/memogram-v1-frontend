@@ -30,21 +30,23 @@ const User = (props) => {
         props.setLoader(20);
         uploadFile(e.target.files[0], setFile, async (response) => {
             if (response.status) {
+                props.setLoader(40);
                 setFile(null);
                 let obj = {
                     id: localStorage.getItem("id"),
                     imageUrl: response.url
                 }
+                props.setLoader(50);
                 const server = await fetch(`${process.env.REACT_APP_URL}/api/v1/upload`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
                     body: JSON.stringify(obj)
                 })
-                props.setLoader(70);
+                props.setLoader(60);
                 const res = await server.json();
-                props.setLoader(100);
+                props.setLoader(80);
                 getImages(localStorage.getItem('id'));
-
+                props.setLoader(100);
             }
             else {
                 props.notification(response.message, { appearance: "error", autoDismautoDismissTimeout: 4000 });
@@ -56,6 +58,7 @@ const User = (props) => {
     useEffect(() => {
         props.setLoader(30);
         getUser(setUser,setProfile);
+        props.setLoader(50);
         getImages(localStorage.getItem("id"));
         props.setLoader(100);
     }, [])
@@ -128,7 +131,7 @@ const UserCard = styled.div`
              border-radius:50%;
              object-fit:cover;
              margin-right:2rem;
-             background-color:rgba(255,255,255,0.6);
+             background-color:rgba(255,255,255,0.7);
            @media screen and (max-width:800px){
          margin-right:0!important;
      }
