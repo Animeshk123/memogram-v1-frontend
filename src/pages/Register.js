@@ -53,7 +53,6 @@ const Register = (props) => {
 
     //submit form
     const handleSubmit = async () => {
-        props.setLoader(20);
         try {
             if (data.password != data.cPassword) {
                 props.notification(`Passwords doesn't match`, { appearance: "error", autoDismiss: true, autoDismissTimeout: 300, autoDismissTimeout: 4000 });
@@ -64,26 +63,26 @@ const Register = (props) => {
                 return;
             }
             else {
-                props.setLoader(40);
                 onClickFileUpload(fileState, setFileState, props.notification, props.setLoader,async (url) => {
-                    props.setLoader(60);
                     let obj = {
                         name: data.name,
                         email: data.email,
                         password: data.password,
                         profileUrl: url
                     }
+                    props.setLoader(20);
                     const server = await fetch(`${process.env.REACT_APP_URL}/api/v1/register`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
                         body: JSON.stringify(obj)
                     })
-                    props.setLoader(80);
+                    props.setLoader(40);
                     const res = await server.json();
-                    props.setLoader(90);
+                    props.setLoader(80);
                     if (res.regStatus) {
                         localStorage.setItem('id', res.user._id);
                         props.notification(res.message, { appearance: "success", autoDismiss: true, autoDismissTimeout: 4000 });
+                        props.setLoader(100);
                         setTimeout(() => {
                             history('/');
                         }, 1000);
