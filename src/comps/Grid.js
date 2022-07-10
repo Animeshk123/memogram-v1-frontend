@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import Card from './Card';
 import Load from './Load';
+import Value from './Value';
 
 const Grid = (props) => {
   const [loading, setLoading] = useState(true);
@@ -15,10 +16,7 @@ const Grid = (props) => {
             <div className='container'>
                 <GridWrapper>
                     {
-                      (loading) ? (<Load/><Load/>) : (props.data.length > 0) ?
-                            (props.data.map(item => {
-                                return <Card imgUrl={item.imageUrl} id={item.user} />
-                            })) : <p style={{ color: "white" }}>No posts Available</p>
+                      (loading) ? <Load/> : <Value data={props.data} />
 
                     }
                 </GridWrapper>
