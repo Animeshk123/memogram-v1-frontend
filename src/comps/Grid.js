@@ -5,19 +5,12 @@ import Load from './Load';
 import Value from './Value';
 
 const Grid = (props) => {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
     return (
         <>
             <div className='container'>
                 <GridWrapper>
                     {
-                      (loading) ? <Load/> : <Value data={props.data} />
-
+                      (props.data === null) ? <Load/> : <Value data={props.data} />
                     }
                 </GridWrapper>
             </div>
