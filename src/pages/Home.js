@@ -10,7 +10,7 @@ import { getUser } from '../logic/Get';
 
 const Home = (props) => {
   const [user, setUser] = useState({});
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [profile,setProfile] = useState("/media/default.jpg");
 
   const getImages = async () => {
