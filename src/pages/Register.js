@@ -65,7 +65,7 @@ const Register = (props) => {
             }
             else {
                 props.setLoader(40);
-                onClickFileUpload(fileState, setFileState, props.notification, props.setLoader,props.setLoader,async (url) => {
+                onClickFileUpload(fileState, setFileState, props.notification, props.setLoader,async (url) => {
                     props.setLoader(60);
                     let obj = {
                         name: data.name,
