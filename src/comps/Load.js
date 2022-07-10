@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Load = () => {
  return (
    <>
-     <CardWrapper></CardWrapper>
+     <CardWrapper>Loading..</CardWrapper>
    </>
   );
 }
@@ -14,7 +14,7 @@ const CardWrapper = styled.div`
   max-width:450px;
   border-radius:8px;
   height:200px;
-  background:'rgba(255,255,255,0.7)';
+  background-color:'rgba(255,255,255,0.7)';
   margin-bottom:1.2rem;
 `;
 
