@@ -17,10 +17,10 @@ const App = () => {
     return (
         <>
             <LoadingBar
-                color='#F73D93'
+                color='red'
                 progress={progress}
-                height='7px'
-                shadow='true'
+                height='4px'
+                shadow=true
                 onLoaderFinished={() => setProgress(0)}
             />
             <Routes>
