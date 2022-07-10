@@ -12,9 +12,9 @@ const Load = () => {
 const CardWrapper = styled.div`
   width:100%;
   max-width:450px;
-  border-radius:80px;
+  border-radius:8px;
   height:200px;
-  background:'rgba(255,255,255,0.7);
+  background:'rgba(255,255,255,0.7)';
   margin-bottom:1.2rem;
 `;
 
