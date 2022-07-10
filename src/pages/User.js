@@ -54,10 +54,10 @@ const User = (props) => {
     }
 
     useEffect(() => {
+        props.setLoader(30);
         getUser(setUser,setProfile);
         getImages(localStorage.getItem("id"));
-        showLoader(props.setLoader);
-
+        props.setLoader(100);
     }, [])
 
     const logout = () => {
