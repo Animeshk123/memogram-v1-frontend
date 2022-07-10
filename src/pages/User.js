@@ -28,27 +28,27 @@ const User = (props) => {
             return;
         }
         props.setLoader(20);
-        uploadFile(e.target.files[0], setFile, async (response) => {
+        uploadFile(e.target.files[0], setFile, props.setLoader, async (response) => {
             if (response.status) {
-                props.setLoader(40);
                 setFile(null);
                 let obj = {
                     id: localStorage.getItem("id"),
                     imageUrl: response.url
                 }
-                props.setLoader(50);
+                props.setLoader(20);
                 const server = await fetch(`${process.env.REACT_APP_URL}/api/v1/upload`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
                     body: JSON.stringify(obj)
                 })
-                props.setLoader(60);
+                props.setLoader(40);
                 const res = await server.json();
-                props.setLoader(80);
+                props.setLoader(60);
                 getImages(localStorage.getItem('id'));
                 props.setLoader(100);
             }
             else {
+                props.setLoader(100);
                 props.notification(response.message, { appearance: "error", autoDismautoDismissTimeout: 4000 });
             }
         })
