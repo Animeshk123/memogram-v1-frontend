@@ -8,7 +8,7 @@ import { onClickFileUpload, showLoader } from "../logic/logic";
 const Register = (props) => {
 
     useEffect(() => {
-        showLoader(props.setLoader);
+        props.setLoader(100);
     }, []);
 
     const history = useNavigate();
