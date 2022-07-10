@@ -60,6 +60,7 @@ const Header = styled.div`
             object-position:center;
             border-radius:50%;
             cursor:pointer;
+            background-color:rgba(255,255,255,0.6);
         }
      }
  }
